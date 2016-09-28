@@ -5,8 +5,12 @@ import { render } from 'react-dom';
  * This is the root component for the react code
  */
 
-const Root = (
-  <p>This is the Root component</p>
-);
+class Root extends Component {
+  render() {
+    return (
+      <p>This is the root component of project</p>
+    );
+  }
+}
 
 render(<Root/>, document.querySelector('#app'));
