@@ -7,6 +7,7 @@ var babelify = require('babelify');
 var browserify = require('browserify');
 var watchify = require('watchify');
 var source = require('vinyl-source-stream');
+var browserSync = require('browser-sync');
 
 /**
  * importing config variables
@@ -45,7 +46,9 @@ gulp.task('scripts', function() {
  */
 gulp.task('browserSync', function() {
   browserSync({
-    baseDir: config.APP_ROOT_DIR,
+    server: {
+      baseDir: config.APP_ROOT_DIR
+    },
     ghostMode: false
   });
   gulp.watch(config.APP_ROOT_DIR + '/build/' + config.MAIN_JS_FILE, browserSync.reload);
