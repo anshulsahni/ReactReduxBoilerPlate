@@ -4,7 +4,6 @@ import { render } from 'react-dom';
 /**
  * This is the root component for the react code
  */
-
 class Root extends Component {
   render() {
     return (
@@ -13,4 +12,4 @@ class Root extends Component {
   }
 }
 
-render(<Root/>, document.querySelector('#app'));
+export default Root;
