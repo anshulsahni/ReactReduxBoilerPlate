@@ -58,5 +58,5 @@ gulp.task('browserSync', function() {
  * default task for gulp
  */
 gulp.task('default', ['scripts', 'browserSync'], function() {
-  gutil.log('Gulp setting up your project');
+  gutil.log('Gulp initiating your project');
 });
