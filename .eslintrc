@@ -1,0 +1,36 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+
+  "rules": {
+    "semi": [
+      "error", "always"
+    ],
+    "indent": [
+      "error", 2
+    ]
+  },
+
+  "plugins": [
+    "react"
+  ],
+
+  "settings": {
+    "react": {
+      "pragma": "React",
+      "version": "15.0"
+    }
+  },
+
+  "extends": ["eslint:recommended", "plugin:react/recommended"]
+}
