@@ -58,6 +58,7 @@ gulp.task('scripts', function() {
         extensions: config.BUNDLING_EXTENSIONS
       })
       .bundle()
+      .on('error', handleError)
       .pipe(source(config.MAIN_JS_FILE))
       .pipe(gulp.dest(config.APP_ROOT_DIR + '/build'));
   };
