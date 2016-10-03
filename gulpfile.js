@@ -48,8 +48,7 @@ gulp.task('lint', function() {
  * task to bundle all the javscript files from scripts folder
  */
 gulp.task('scripts', function() {
-
-  var bundler = watchify(browserify(config.ROOT_DIR + '/Root.jsx'), {
+  var bundler = watchify(browserify(config.ROOT_DIR + '/index.jsx'), {
     extensions: config.BROWSERIFY_EXTENSIONS
   });
 
