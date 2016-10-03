@@ -8,11 +8,24 @@ var browserify = require('browserify');
 var watchify = require('watchify');
 var source = require('vinyl-source-stream');
 var browserSync = require('browser-sync');
+var eslint = require('gulp-eslint');
 
 /**
  * importing config variables
  */
 var config = require('./config');
+
+/**
+ * task to check for lint errors
+ */
+gulp.task('lint', function() {
+  return gulp.src('scripts/**')
+    .pipe(eslint())
+    // printing the eslint output to console
+    .pipe(eslint.format())
+    //returning with exit status 1 if there is any lint errors
+    .pipe(eslint.failAfterError());
+});
 
 /**
  * task to bundle all the javscript files from scripts folder
@@ -57,6 +70,6 @@ gulp.task('browserSync', function() {
 /**
  * default task for gulp
  */
-gulp.task('default', ['scripts', 'browserSync'], function() {
+gulp.task('default', ['lint', 'scripts', 'browserSync'], function() {
   gutil.log('Gulp initiating your project');
 });
