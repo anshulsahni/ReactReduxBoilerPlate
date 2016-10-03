@@ -21,7 +21,7 @@ module.exports = {
    * extensions to be used by browserify or watchify
    * @type {Array}
    */
-  BROWSERIFY_EXTENSIONS: ['.jsx', '.js'],
+  BUNDLING_EXTENSIONS: ['.jsx', '.js'],
 
   /**
    * enable or disable checking of linting errors
