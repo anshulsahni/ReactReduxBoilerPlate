@@ -26,15 +26,20 @@ function handleError (err) {
 /**
  * task to check for lint errors
  */
-gulp.task('lint', function(callback) {
-  return gulp.src('scripts/**')
-    .pipe(eslint())
-    // printing the eslint output to console
-    .pipe(eslint.format())
-    //returning with exit status 1 if there is any lint errors
-    .pipe(eslint.failAfterError())
-    // passing erros to handleError if any
-    .on('error', handleError);
+gulp.task('lint', function() {
+
+  //perform es lint check only if CHECK_LINT_ERRORS flag is true
+  if (config.CHECK_LINT_ERRORS) {
+    return gulp.src('scripts/**')
+      .pipe(eslint())
+      // printing the eslint output to console
+      .pipe(eslint.format())
+      //returning with exit status 1 if there is any lint errors
+      .pipe(eslint.failAfterError())
+      // passing erros to handleError if any
+      .on('error', handleError);
+  }
+  return true;
 
 });
 
