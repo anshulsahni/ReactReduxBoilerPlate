@@ -16,15 +16,26 @@ var eslint = require('gulp-eslint');
 var config = require('./config');
 
 /**
+ * function to handle errors from any task
+ */
+function handleError (err) {
+  gutil.log(err.toString());
+  process.exit(-1);
+}
+
+/**
  * task to check for lint errors
  */
-gulp.task('lint', function() {
+gulp.task('lint', function(callback) {
   return gulp.src('scripts/**')
     .pipe(eslint())
     // printing the eslint output to console
     .pipe(eslint.format())
     //returning with exit status 1 if there is any lint errors
-    .pipe(eslint.failAfterError());
+    .pipe(eslint.failAfterError())
+    // passing erros to handleError if any
+    .on('error', handleError);
+
 });
 
 /**
@@ -55,9 +66,16 @@ gulp.task('scripts', function() {
 });
 
 /**
+ * build task
+ */
+gulp.task('build', ['lint', 'scripts'], function() {
+  gutil.log('Build complete...');
+});
+
+/**
  * task to start browserSync
  */
-gulp.task('browserSync', function() {
+gulp.task('browserSync', ['build'], function() {
   browserSync({
     server: {
       baseDir: config.APP_ROOT_DIR
@@ -70,6 +88,9 @@ gulp.task('browserSync', function() {
 /**
  * default task for gulp
  */
-gulp.task('default', ['lint', 'scripts', 'browserSync'], function() {
+gulp.task('default', ['build', 'browserSync'], function() {
+
+  //action to be taken after all the tasks are completed
   gutil.log('Gulp initiating your project');
+
 });
