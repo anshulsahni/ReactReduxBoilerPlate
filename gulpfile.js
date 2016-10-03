@@ -1,9 +1,10 @@
+/* global require, process */
+
 /**
  * required modules
  */
 var gulp = require('gulp');
 var gutil = require('gulp-util');
-var babelify = require('babelify');
 var browserify = require('browserify');
 var watchify = require('watchify');
 var source = require('vinyl-source-stream');
@@ -57,13 +58,13 @@ gulp.task('scripts', function() {
       .transform('babelify')
       .bundle()
       .pipe(source(config.MAIN_JS_FILE))
-      .pipe(gulp.dest(config.APP_ROOT_DIR + '/build'))
-  }
+      .pipe(gulp.dest(config.APP_ROOT_DIR + '/build'));
+  };
 
   bundler.on('update', function() {
     compile();
     gutil.log('Re bundling javascript files...');
-  })
+  });
 
   gutil.log('Bundling javascript files...');
   return compile();
