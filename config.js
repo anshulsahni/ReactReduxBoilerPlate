@@ -3,7 +3,7 @@ module.exports = {
   /**
    * Root directory of the js source code
    */
-  ROOT_DIR: '',
+  ROOT_DIR: 'scripts',
 
   /**
    * Root directory for the app
