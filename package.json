@@ -1,15 +1,15 @@
 {
   "name": "react-boilerplate",
   "version": "1.0.0",
-  "description": "A general boilerplate for react application",
+  "description": "Give description of your project",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Anshul Sahni",
+  "author": "Type-your-name",
   "repository": {
     "type": "git",
-    "url": "git@github.com:anshulsahni/ReactBoilerPlate.git"
+    "url": "give-git-repo-link"
   },
   "license": "ISC",
   "devDependencies": {
