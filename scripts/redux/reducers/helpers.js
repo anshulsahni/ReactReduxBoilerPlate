@@ -4,5 +4,5 @@ export const createReducer = (initialState, methods) => {
       return methods[action.type](state, action);
     }
     return state;
-  }
-}
+  };
+};
