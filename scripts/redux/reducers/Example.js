@@ -1,10 +1,15 @@
-import { EXAMPLE } from './constants';
+import { createReducer } from './helpers';
+import { EXAMPLE } from '../constants';
 
-const initialState = {};
+const initialState = {
+  example: 'example'
+};
 
-const onExample = (state, action) => {
-  return { state };
-}
+const onExample = state => {
+  return {
+    ...state
+  };
+};
 
 export default createReducer(initialState, {
   [EXAMPLE]: onExample
