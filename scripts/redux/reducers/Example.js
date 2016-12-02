@@ -2,15 +2,13 @@ import { createReducer } from './helpers';
 import { EXAMPLE } from '../constants';
 
 const initialState = {
-  example: 'example'
+  example: 'example',
 };
 
-const onExample = state => {
-  return {
-    ...state
-  };
-};
+const onExample = state => ({
+  ...state,
+});
 
 export default createReducer(initialState, {
-  [EXAMPLE]: onExample
+  [EXAMPLE]: onExample,
 });
