@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "gulp-eslint": "^3.0.1",
+    "node-server-for-react": "git+ssh://git@github.com/anshulsahni/NodeServerForReact.git",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-redux": "^4.4.5",
